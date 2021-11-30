@@ -31,11 +31,11 @@ public class GamblerSimulator {
             int bet = stakes.getTotalStakes();
 
             if (betState == 1) {
-                System.out.println("You Win the bet"+stakes.getTotalStakes());
+
                 stakes.setTotalStakes(bet + BET_PER_DAY);
 
             } else {
-                System.out.println("You Lost the bet"+stakes.getTotalStakes());
+
                 stakes.setTotalStakes(bet - BET_PER_DAY);
             }
         }
