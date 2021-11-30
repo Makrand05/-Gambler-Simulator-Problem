@@ -4,6 +4,7 @@ public class Stakes {
     int totalStakes = 100;
     int betPerGame = 1;
 
+
     public int getTotalStakes() {
         return totalStakes;
     }
