@@ -27,15 +27,37 @@ public class GamblerSimulator {
                 totalDays--;
             }
 
-            printResult();
+           // printResult();
 //            System.out.println("You want to play again if yes press 1, If not press 0");
 //            TOTAL_MONTHS= (new Scanner(System.in)).nextInt();
 //            if (TOTAL_MONTHS==0){
 //                break;
 //            }
             TOTAL_MONTHS--;
+
+            calculateLuckyDay(perDayAmount);
+
         }
 
+    }
+
+    private static void calculateLuckyDay(int[] perDayAmount) {
+        int lucky = perDayAmount[0];
+        int unLucky=perDayAmount[0];
+        int luckyWinDay = 0;
+        int unLuckyLostDay=0;
+        for(int i=0; i<perDayAmount.length; i++) {
+            if (lucky < perDayAmount[i]) {
+                luckyWinDay = i;
+                lucky = perDayAmount[i];
+            }
+            if (unLucky > perDayAmount[i]) {
+                unLuckyLostDay = i;
+                unLucky = perDayAmount[i];
+            }
+        }
+        System.out.println("luckiest day where you won maximum : "+luckyWinDay);
+        System.out.println("Unluckiest day where you lost maximum : "+unLuckyLostDay);
     }
 
     //Print the day wise amount
