@@ -1,33 +1,26 @@
 package com.bridg.mak;
 
 public class Stakes {
-    static int totalStakes = 100;
+    int totalStakes = 100;
+    int betPerGame = 1;
 
-    public static int getTotalStakes() {
+    public int getTotalStakes() {
         return totalStakes;
     }
 
-    public static void setTotalStakes(int totalStakes) {
-        Stakes.totalStakes = totalStakes;
+    public void setTotalStakes(int totalStakes) {
+        this.totalStakes = totalStakes;
     }
 
-    public static int getBetPerGame() {
+    public int getBetPerGame() {
         return betPerGame;
     }
 
-    public static void setBetPerGame(int betPerGame) {
-        Stakes.betPerGame = betPerGame;
+    public void setBetPerGame(int betPerGame) {
+        this.betPerGame = betPerGame;
     }
 
-    public int getMonth() {
-        return month;
-    }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
 
-    static int betPerGame = 1;
-    int month;
 }
 
