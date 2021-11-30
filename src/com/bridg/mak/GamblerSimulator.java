@@ -2,10 +2,12 @@ package com.bridg.mak;
 
 public class GamblerSimulator {
 
+    static int BET_PER_DAY = 1;
 
-    GamblerSimulator(){
+    GamblerSimulator() {
 
     }
+
     public static void main(String[] args) {
         checkWinorLoose();
         printResult();
@@ -13,23 +15,29 @@ public class GamblerSimulator {
 
     private static void printResult() {
         Stakes stakes = new Stakes();
-       // print the stake and bet per day
-        System.out.println("Total Stakes in Day :" + stakes.getStakePerDay());
+        // print the stake and bet per day
+        System.out.println("Total Stakes in Day :" + stakes.getTotalStakes());
         System.out.println("Total bet per game : " + stakes.getBetPerGame());
     }
 
     private static void checkWinorLoose() {
-        int betState= (int) ((Math.random()*10))%2;
-        Stakes stakes=new Stakes();
-        int bet=stakes.getBetPerGame();
-        int stake=stakes.getStakePerDay();
-        if(betState==1){
-            System.out.println("You Win the bet");
-            stakes.setStakePerDay(stake+bet);
+        Stakes stakes = new Stakes();
+        int minStake = stakes.getTotalStakes() - 50;
+        int maxStake = stakes.getTotalStakes() + 50;
 
-        }else {
-            System.out.println("You Lost the bet");
-            stakes.setStakePerDay(stake-bet);
+        while (stakes.getTotalStakes() > minStake && stakes.getTotalStakes() < maxStake) {
+            int betState = (int) ((Math.random() * 10)) % 2;
+
+            int bet = stakes.getTotalStakes();
+
+            if (betState == 1) {
+                System.out.println("You Win the bet"+stakes.getTotalStakes());
+                stakes.setTotalStakes(bet + BET_PER_DAY);
+
+            } else {
+                System.out.println("You Lost the bet"+stakes.getTotalStakes());
+                stakes.setTotalStakes(bet - BET_PER_DAY);
+            }
         }
     }
 }
