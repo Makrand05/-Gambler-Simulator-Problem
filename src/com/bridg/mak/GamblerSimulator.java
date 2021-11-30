@@ -35,7 +35,8 @@ public class GamblerSimulator {
             calculateLuckyDay(perDayAmount);
         }
     }
-//Find the lucky and unlucky day from the month
+
+    //Find the lucky and unlucky day from the month
     private static void calculateLuckyDay(int[] perDayAmount) {
         int lucky = perDayAmount[0];
         int unLucky = perDayAmount[0];
